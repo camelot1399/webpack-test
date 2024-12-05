@@ -3,6 +3,8 @@ import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
 
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+
 type Mode = "production" | "development";
 
 interface EnvVariables {
@@ -12,6 +14,7 @@ interface EnvVariables {
 
 export default (env: EnvVariables) => {
   const isDev = env.mode === "development";
+  const isProd = env.mode === "production";
 
   const devServerConfig = {
     // static: {
@@ -34,6 +37,11 @@ export default (env: EnvVariables) => {
         template: path.resolve(__dirname, "public", "index.html"),
       }),
       isDev && new webpack.ProgressPlugin(),
+      isProd &&
+        new MiniCssExtractPlugin({
+          filename: "css/[name].[contenthash:8].css",
+          chunkFilename: "css/[name].[contenthash:8].css",
+        }),
     ].filter(Boolean),
     module: {
       rules: [
@@ -41,7 +49,7 @@ export default (env: EnvVariables) => {
           test: /\.s[ac]ss$/i,
           use: [
             // Creates `style` nodes from JS strings
-            "style-loader",
+            isDev ? "style-loader" : MiniCssExtractPlugin.loader,
             // Translates CSS into CommonJS
             "css-loader",
             // Compiles Sass to CSS
