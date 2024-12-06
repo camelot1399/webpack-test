@@ -1,3 +1,3 @@
-import { LazyShop as Shop } from "./Shop.lazy";
+import { LazyShop as Shop } from "@/pages/shop/Shop.lazy";
 
 export default Shop;

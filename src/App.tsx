@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import * as styles from "./App.module.scss";
+import * as styles from "@/App.module.scss";
 import { Outlet } from "react-router-dom";
 
 const App = () => {
