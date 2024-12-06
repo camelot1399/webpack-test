@@ -1,6 +1,7 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const root = document.querySelector("#root");
 
@@ -10,4 +11,11 @@ if (!root) {
 
 const container = createRoot(root);
 
-container.render(<App />);
+container.render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/about" element={<App />} />
+    </Routes>
+  </BrowserRouter>
+);

@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import * as styles from "./App.module.scss";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -21,6 +22,8 @@ const App = () => {
       >
         click
       </button>
+
+      <Outlet />
     </>
   );
 };
