@@ -11,6 +11,10 @@ const App = () => {
 
       <div>count: {count}</div>
 
+      <div className={styles.stories}>
+        <div className={styles.stories__wrapper}>storis wrapper</div>
+      </div>
+
       <button
         className={styles.button}
         onClick={() => setCount((count) => count + 1)}
