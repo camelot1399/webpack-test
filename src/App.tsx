@@ -3,7 +3,11 @@ import { useState } from "react";
 import * as styles from "@/App.module.scss";
 import { Outlet } from "react-router-dom";
 
-import AvatarPng from "@/assets/dog_png.png";
+import avatarPng from "@/assets/dog_png.png";
+import avatarJpg from "@/assets/dog_jpg.jpg";
+
+import AvatarSVG from "@/assets/icon.svg";
+import AvatarSVG2 from "@/assets/Vector.svg";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -13,7 +17,12 @@ const App = () => {
       <h1>webpack test</h1>
 
       <div>
-        <img src={AvatarPng} alt="" />
+        <img src={avatarPng} width={100} alt="" />
+        <img src={avatarJpg} width={100} alt="" />
+      </div>
+
+      <div>
+        <AvatarSVG2 width={200} height={200} fill={"red"} />
       </div>
 
       <div>count: {count}</div>
