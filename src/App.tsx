@@ -6,7 +6,6 @@ import { Outlet } from "react-router-dom";
 import avatarPng from "@/assets/dog_png.png";
 import avatarJpg from "@/assets/dog_jpg.jpg";
 
-import AvatarSVG from "@/assets/icon.svg";
 import AvatarSVG2 from "@/assets/Vector.svg";
 
 const App = () => {
@@ -22,7 +21,7 @@ const App = () => {
       </div>
 
       <div>
-        <AvatarSVG2 width={200} height={200} fill={"red"} />
+        <AvatarSVG2 />
       </div>
 
       <div>count: {count}</div>
