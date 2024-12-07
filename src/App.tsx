@@ -3,12 +3,18 @@ import { useState } from "react";
 import * as styles from "@/App.module.scss";
 import { Outlet } from "react-router-dom";
 
+import AvatarPng from "@/assets/dog_png.png";
+
 const App = () => {
   const [count, setCount] = useState(0);
 
   return (
     <>
       <h1>webpack test</h1>
+
+      <div>
+        <img src={AvatarPng} alt="" />
+      </div>
 
       <div>count: {count}</div>
 
