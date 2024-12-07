@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <>
-      <h1>webpack test</h1>
+      <h1>PLATFORM: {__PLATFORM__}</h1>
 
       <div>
         <img src={avatarPng} width={100} alt="" />
