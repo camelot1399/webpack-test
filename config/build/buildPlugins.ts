@@ -31,11 +31,13 @@ export function buildPlugins({
       new MiniCssExtractPlugin({
         filename: "css/[name].[contenthash:8].css",
         chunkFilename: "css/[name].[contenthash:8].css",
-      }),
-      analizer && new BundleAnalyzerPlugin(),
-      new ForkTsCheckerWebpackPlugin()
+      })
     );
+
+    analizer && plugins.push(new BundleAnalyzerPlugin());
+
+    plugins.push(new ForkTsCheckerWebpackPlugin());
   }
 
-  return plugins;
+  return plugins.filter(Boolean);
 }
