@@ -6,6 +6,8 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import { Configuration, DefinePlugin } from "webpack";
 import { BuildOptions } from "./types/types";
 
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+
 export function buildPlugins({
   mode,
   paths,
@@ -30,7 +32,8 @@ export function buildPlugins({
         filename: "css/[name].[contenthash:8].css",
         chunkFilename: "css/[name].[contenthash:8].css",
       }),
-      analizer && new BundleAnalyzerPlugin()
+      analizer && new BundleAnalyzerPlugin(),
+      new ForkTsCheckerWebpackPlugin()
     );
   }
 
