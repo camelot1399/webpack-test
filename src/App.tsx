@@ -15,6 +15,8 @@ const App = () => {
     <>
       <h1>PLATFORM: {__PLATFORM__}</h1>
 
+      <div>is prod: {__MODE__}</div>
+
       <div>
         <img src={avatarPng} width={100} alt="" />
         <img src={avatarJpg} width={100} alt="" />
