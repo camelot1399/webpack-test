@@ -8,6 +8,9 @@ import { BuildOptions } from "./types/types";
 
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 
+import CopyPlugin from "copy-webpack-plugin";
+import path from "path";
+
 export function buildPlugins({
   mode,
   paths,
@@ -37,6 +40,17 @@ export function buildPlugins({
     analizer && plugins.push(new BundleAnalyzerPlugin());
 
     plugins.push(new ForkTsCheckerWebpackPlugin());
+
+    plugins.push(
+      new CopyPlugin({
+        patterns: [
+          {
+            from: path.resolve(paths.public, "locales"),
+            to: path.resolve(paths.output, "locales"),
+          },
+        ],
+      })
+    );
   }
 
   return plugins.filter(Boolean);
