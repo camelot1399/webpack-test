@@ -29,6 +29,7 @@ export default (env: EnvVariables): webpack.Configuration => {
     paths,
     analizer: env.analizer,
     platform: env.platform ?? "desktop",
+    isDev: env.mode === "development",
   });
 
   return config;

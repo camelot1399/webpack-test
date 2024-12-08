@@ -14,6 +14,7 @@ export interface BuildOptions {
   mode: BuildMode;
   analizer?: boolean;
   platform: BuildPlatform;
+  isDev: boolean;
 }
 
 export type BuildPlatform = "mobile" | "desktop";

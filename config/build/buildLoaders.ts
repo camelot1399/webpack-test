@@ -1,9 +1,10 @@
 import { ModuleOptions } from "webpack";
 import { BuildOptions } from "./types/types";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { buildBabelLoaders } from "./babel/buildBabelLoaders";
 
 export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
-  const isDev = options.mode === "development";
+  const { isDev } = options;
 
   const cssLoadersWithModules = {
     loader: "css-loader",
@@ -44,6 +45,8 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
     ],
   };
 
+  const babelLoader = buildBabelLoaders(options);
+
   const svgrLoader = {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
@@ -68,5 +71,11 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
     ],
   };
 
-  return [assetLoader, scssLoader, tsLoader, svgrLoader];
+  return [
+    assetLoader,
+    scssLoader,
+    // tsLoader,
+    babelLoader,
+    svgrLoader,
+  ];
 }

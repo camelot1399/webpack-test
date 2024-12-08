@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <>
-      <h1>PLATFORM: {__PLATFORM__}</h1>
+      <h1 data-testid="datatestId-9090">PLATFORM: {__PLATFORM__}</h1>
 
       <div>is prod: {__MODE__}</div>
 
